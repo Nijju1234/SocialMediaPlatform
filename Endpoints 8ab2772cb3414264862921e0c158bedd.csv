@@ -1,0 +1,467 @@
+﻿Name,Category,Http Method,Description,Success Response
+/api/users/all,User,GET,Get a list of all users,"{
+""status"": ""success"",
+""data"": [
+{
+""userId"": 1,
+""username"": ""user1"",
+// Additional user data
+},
+{
+""userId"": 2,
+""username"": ""user2"",
+// Additional user data
+},
+// Additional users
+]
+}"
+/api/users/{userId},User,GET,Get details of a specific user by ID.,"{
+""status"": ""success"",
+""data"": {
+""userId"": 123,
+""username"": ""example_user"",
+// Additional user data
+}
+}"
+/api/users/search/{username},User,GET,Search for users by name,"{
+""status"": ""success"",
+""data"": {
+""username"": ""example_user"",
+
+}
+}"
+/api/users,User,POST,Add Users,"{
+  ""status"": ""success"",
+  ""message"": ""User created successfully.""
+}"
+/api/users/update/{userId},User,PUT,Update user details.,"{
+  ""status"": ""success"",
+  ""message"": ""User updated successfully.""
+}"
+/api/users/delete/{userId},User,DELETE,Delete a user,"{
+  ""status"": ""success"",
+  ""message"": ""User deleted successfully.""
+}"
+/api/users/{userId}/posts,User,GET,Retrieve all posts created by a specific user,"{
+""status"": ""success"",
+""data"": [
+{
+""postId"": 1,
+""userId"": 123,
+// Additional post data
+},
+{
+""postId"": 2,
+""userId"": 123,
+// Additional post data
+},
+// Additional posts
+]
+}"
+/api/users/{userId}/posts/comments,User,GET,Retrieve all comments on posts created by a specific user,"{
+""status"": ""success"",
+""data"": [
+{
+""commentId"": 1,
+""postId"": 123,
+// Additional comment data
+},
+{
+""commentId"": 2,
+""postId"": 123,
+// Additional comment data
+},
+// Additional comments
+]
+}"
+/api/users/{userId}/friends,User,GET,Retrieve all friends of a specific user.,"{
+""status"": ""success"",
+""data"": [
+{
+""friendId"": 1,
+// Additional friend data
+},
+{
+""friendId"": 2,
+// Additional friend data
+},
+// Additional friends
+]
+}"
+/api/users/{userId}/friend-requests/pending,User,GET,Retrieve pending friend requests for a specific user,"{
+""status"": ""success"",
+""data"": [
+{
+""requestId"": 1,
+""userId"": 123,
+// Additional request data
+},
+{
+""requestId"": 2,
+""userId"": 123,
+// Additional request data
+},
+// Additional pending requests
+]
+}"
+/api/users/{userId}/friend-requests/send/{friendId},User,POST,Send a friend request from one user to another.,"{
+""status"": ""success"",
+""message"": ""Friend request sent successfully.""
+}"
+/api/users/{userId}/messages/{otherUserId},User,GET,Retrieve all messages between two users,"{
+""status"": ""success"",
+""data"": [
+{
+""messageId"": 1,
+""userId"": 123,
+""otherUserId"": 456,
+""content"": ""Message content"",
+// Additional message data
+},
+{
+""messageId"": 2,
+""userId"": 123,
+""otherUserId"": 456,
+""content"": ""Message content"",
+// Additional message data
+},
+// Additional messages
+]
+}"
+/api/users/{userId}/messages/send/{otherUserId},User,POST,Send a message from one user to another,"{
+""status"": ""success"",
+""message"": ""Message sent successfully.""
+}"
+/api/users/{userId}/posts/likes,User,GET,Retrieve all likes on posts created by a specific user.,"{
+""status"": ""success"",
+""data"": [
+{
+""likeId"": 1,
+""postId"": 123,
+// Additional like data
+},
+{
+""likeId"": 2,
+""postId"": 123,
+// Additional like data
+},
+// Additional likes
+]
+}"
+/api/users/{userId}/likes,User,GET,Retrieve all likes given by a specific user.,"{
+""status"": ""success"",
+""data"": [
+{
+""likeId"": 1,
+""postId"": 123,
+// Additional like data
+},
+{
+""likeId"": 2,
+""postId"": 123,
+// Additional like data
+},
+// Additional likes
+]
+}"
+/api/users/{userId}/notifications,User,GET,Retrieve all notifications for a specific user,"{
+""status"": ""success"",
+""data"": [
+{
+""notificationId"": 1,
+// Additional notification data
+},
+{
+""notificationId"": 2,
+// Additional notification data
+},
+// Additional notifications
+]
+}"
+/api/users/{userId}/groups,User,GET,Retrieve all groups a user is a member of,"{
+""status"": ""success"",
+""data"": [
+{
+""groupId"": 1,
+// Additional group data
+},
+{
+""groupId"": 2,
+// Additional group data
+},
+// Additional groups
+]
+}"
+/api/post,Post,POST,Create a new post,"{
+  ""status"": ""success"",
+  ""message"": ""Post created successfully.""
+}"
+/api/post/{postId},Post,GET,Retrieve Post by id,"{
+""status"": ""success"",
+""data"": {
+""postId"": 123,
+// Additional post data
+}
+}"
+/api/post/update/{postId},Post,PUT,Update post details.,"{
+  ""status"": ""success"",
+  ""message"": ""Post updated successfully.""
+}"
+/api/post/delete/{postId},Post,DELETE,Delete a post,"{
+  ""status"": ""success"",
+  ""message"": ""Post deleted successfully.""
+}"
+/api/posts/{postId}/likes/add/{userId},Post,POST,Add likes to post,"{
+  ""status"": ""success"",
+  ""message"": ""Like added to the post successfully.""
+}"
+/api/posts/{postId}/likes,Post,GET,Retrieve all likes on a specific post.,"{
+  ""status"": ""success"",
+  ""data"": [
+    {
+      ""likeId"": 1,
+      ""userId"": 123,
+      // Additional like data
+    },
+    {
+      ""likeId"": 2,
+      ""userId"": 123,
+      // Additional like data
+    },
+    // Additional likes
+  ]
+}"
+/api/posts/{postId}/likes/remove/{likeId},Post,DELETE,Remove a like from a post,"{
+  ""status"": ""success"",
+  ""message"": ""Like removed from the post successfully.""
+}"
+/api/users/{userId}/posts/likes,Post,GET,Retrieve all likes on posts created by a specific user.,"{
+  ""status"": ""success"",
+  ""data"": [
+    {
+      ""postId"": 1,
+      // Additional post data
+    },
+    {
+      ""postId"": 2,
+      // Additional post data
+    },
+    // Additional posts liked by the user
+  ]
+}"
+/api/users/{userId}/friends,Friends,GET,Retrieve friend of a user,"{
+""status"": ""success"",
+""data"": [
+{
+""friendId"": 1,
+// Additional friend data
+},
+{
+""friendId"": 2,
+// Additional friend data
+},
+// Additional friends of the user
+]
+}"
+/api/users/{userId}/friends/{friendId},Friends,POST,Add a friend,"{
+""status"": ""success"",
+""message"": ""Friend added successfully.""
+}"
+/api/users/{userId}/friends/{friendId},Friends,DELETE,Remove a Friend,"{
+""status"": ""success"",
+""message"": ""Friend removed successfully.""
+}"
+/api/friends/{friendshipId}/messages,Friends,GET,Retrieve all messages between friends,"{
+""status"": ""success"",
+""data"": [
+{
+""messageId"": 1,
+// Additional message data
+},
+{
+""messageId"": 2,
+// Additional message data
+},
+// Additional messages between friends
+]
+}"
+/api/friends/{friendshipId}/messages/send,Friends,POST,Send a message to a friend.,"{
+""status"": ""success"",
+""message"": ""Message sent successfully.""
+}"
+,Friends,,,
+,Friends,,,
+/api/posts/{postId}/comments,Comment,GET,Retrieve Comments for the post,"{
+""status"": ""success"",
+""data"": [
+{
+""commentId"": 1,
+""postId"": ""postId1"",
+""content"": ""Comment content 1"",
+// Additional comment data
+},
+{
+""commentId"": 2,
+""postId"": ""postId2"",
+""content"": ""Comment content 2"",
+// Additional comment data
+},
+// Additional comments
+]
+}"
+/api/comments,Comment,GET,Retrieve a list of all comments,"{
+""status"": ""success"",
+""data"": [
+{
+""commentId"": 1,
+""postId"": ""postId1"",
+""content"": ""Comment content 1"",
+// Additional comment data
+},
+{
+""commentId"": 2,
+""postId"": ""postId2"",
+""content"": ""Comment content 2"",
+// Additional comment data
+},
+// Additional comments
+]
+}"
+/api/comments/{commentId},Comment,GET,Retrieve a comment by its ID.,"{
+""status"": ""success"",
+""data"": {
+""commentId"": 1,
+""postId"": ""postId1"",
+""content"": ""Comment content 1"",
+// Additional comment data
+}
+}"
+/api/comments,Comment,POST,Create a new comment,"{
+""status"": ""success"",
+""message"": ""Comment created successfully.""
+}"
+/api/comments/{commentId},Comment,PUT,Update an existing comment by its ID,"{
+""status"": ""success"",
+""message"": ""Comment updated successfully.""
+}"
+/api/comments/{commentId},Comment,DELETE,Delete a comment by its ID.,"{
+""status"": ""success"",
+""message"": ""Comment deleted successfully.""
+}"
+/api/posts/{postId}/comments,Comment,POST,Add comment to post,"{
+""status"": ""success"",
+""message"": ""Comment added to post successfully.""
+}"
+/api/posts/{postId}/comments/{commentId},Comment,DELETE,Delete a comment,"{
+""status"": ""success"",
+""message"": ""Comment deleted successfully.""
+}"
+,Comment,,,
+/api/users/{userId}/notifications,Notifications,GET,Retrieve notification of user,"{
+""status"": ""success"",
+""data"": [
+{
+""notificationId"": 1,
+""message"": ""Notification message 1"",
+// Additional notification data
+},
+{
+""notificationId"": 2,
+""message"": ""Notification message 2"",
+// Additional notification data
+},
+// Additional notifications
+]
+}"
+/api/users/{userId}/notifications/mark-read/{notificationId},Notifications,PUT,Mark notification as read,"{
+""status"": ""success"",
+""message"": ""Notification marked as read successfully.""
+}"
+/api/users/{userId}/notifications,Notifications,GET,Retrieve all notifications for a specific user,"{
+""status"": ""success"",
+""message"": ""Notification of specific user retrieved successfully.""
+}"
+/api/users/{userId}/notifications/delete/{notificationId},Notifications,DELETE,Delete Notification,"{
+""status"": ""success"",
+""message"": ""Notification deleted successfully.""
+}"
+/api/messages,Message,GET,Retrieve a list of all messages.,"{
+""status"": ""success"",
+""message"": ""Message details retrieved successfully.""
+}"
+/api/messages/{messageId},Message,GET,Retrieve a message by its ID.,"{
+""status"": ""success"",
+""message"": ""Message details of specific id retrieved successfully.""
+}"
+/api/messages,Message,POST,Create a new message.,"{
+""status"": ""success"",
+""message"": ""Message created successfully.""
+}"
+/api/messages/{messageId},Message,PUT,Update an existing message by its ID.,"{
+""status"": ""success"",
+""message"": ""Message updated successfully.""
+}"
+/api/messages/{messageId},Message,DELETE,Delete a message by its ID.,"{
+""status"": ""success"",
+""message"": ""Message deleted successfully.""
+}"
+/api/groups,Group,GET,Retrieve a list of all groups,"{
+""status"": ""success"",
+""message"": ""Groups retrieved successfully.""
+}"
+/api/groups/{groupId},Group,GET,Retrieve a group by its ID.,"{
+""status"": ""success"",
+""message"": ""Group details retrieved successfully.""
+}"
+/api/groups,Group,POST,Create a new group,"{
+""status"": ""success"",
+""message"": ""Groups created successfully.""
+}"
+/api/groups/{groupId},Group,PUT,Update an existing group by its ID.,"{
+""status"": ""success"",
+""message"": ""Groups updated successfully.""
+}"
+/api/groups/{groupId},Group,DELETE,Delete a group by its ID.,"{
+""status"": ""success"",
+""message"": ""Groups deleted successfully.""
+}"
+/api/groups/{groupId}/leave/{userId},Group,DELETE,Remove a user from a group,"{
+""status"": ""success"",
+""message"": ""User successfully left the group.""
+}"
+/api/groups/{groupId}/join/{userId},Group,POST,Join a user to a group,"{
+""status"": ""success"",
+""message"": ""User successfully joined the group.""
+}"
+/api/users/{userId}/groups,Group,GET,Retrieve all groups a user is a member of.,"{
+""status"": ""success"",
+""message"": ""User's groups retrieved successfully.""
+}"
+/api/groups/{groupId}/messages,Group,GET,Retrieve all messages in a group,"{
+""status"": ""success"",
+""message"": ""Group messages retrieved successfully.""
+}"
+/api/groups/{groupId}/messages/send/{userId},Group,POST,Send a message to a group,"{
+""status"": ""success"",
+""message"": ""Message sent to the group successfully.""
+}"
+/api/users/{userId}/friends/groups,Group,GET,Retrieve all groups where a user's friends are members,"{
+""status"": ""success"",
+""message"": ""User's friends' groups retrieved successfully.""
+}"
+/api/groups/{groupId}/friends,Group,GET,Retrieve all friends who are members of a specific group,"{
+""status"": ""success"",
+""message"": ""Group's friends retrieved successfully.""
+}"
+/api/groups/{groupId}/members,Group,GET,Retrieve all members of a specific group,"{
+""status"": ""success"",
+""message"": ""Group members retrieved successfully.""
+}"
+/api/groups/{groupId}/members/add/{userId},Group,POST,Add a user as a member to a group.,"{
+""status”: ""success"",
+""message"": ""User successfully added to the group.""
+}"
+/api/groups/{groupId}/members/remove/{userId},Group,DELETE,Remove a user from a group,"{
+""status"": ""success"",
+""message"": ""User successfully removed from the group.""
+}"
